@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4286211020706982397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175575408784876544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26475bb5bca747d47986d32806bb6c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  gameEnding: {fileID: 0}
 --- !u!1 &2897095615463596197
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +375,7 @@ Animator:
   m_GameObject: {fileID: 2897095615463596233}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 563ac48ff656d49478fd93213f4c0eb8, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 845b5c1de401b06498a57119d2bb50df, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -435,7 +449,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 4852411390417760525}
-  waypoints: []
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!82 &4729345968452255665
 AudioSource:
   m_ObjectHideFlags: 0
@@ -941,11 +957,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2897095615463505129}
     m_Modifications:
-    - target: {fileID: 7378921137050854689, guid: 86eae96aaee39454c9517158f6c5f6c3,
-        type: 3}
-      propertyPath: m_Name
-      value: PointOfView
-      objectReference: {fileID: 0}
     - target: {fileID: 6773573359429570884, guid: 86eae96aaee39454c9517158f6c5f6c3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1001,8 +1012,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7378921137050854689, guid: 86eae96aaee39454c9517158f6c5f6c3,
+        type: 3}
+      propertyPath: m_Name
+      value: PointOfView
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86eae96aaee39454c9517158f6c5f6c3, type: 3}
+--- !u!1 &1175575408784876544 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7378921137050854689, guid: 86eae96aaee39454c9517158f6c5f6c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 8518358819620192545}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2898025831896862821 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6773573359429570884, guid: 86eae96aaee39454c9517158f6c5f6c3,
