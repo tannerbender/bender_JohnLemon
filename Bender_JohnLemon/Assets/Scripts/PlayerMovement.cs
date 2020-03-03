@@ -61,7 +61,9 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && enemyToBonk != null)
 
         {
-            Destroy(enemyToBonk); // press left shift if we have an enemy to bonk
+            Destroy(enemyToBonk);
+            Time.timeScale = 1;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale; // press left shift if we have an enemy to bonk
         }
 
 
@@ -79,6 +81,8 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("BonkZone"))
         {
             enemyToBonk = other.gameObject.transform.parent.gameObject;
+            Time.timeScale = 0.5f;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
         }
     }
 
@@ -89,6 +93,8 @@ public class PlayerMovement : MonoBehaviour
             if(other.gameObject.transform.parent.gameObject == enemyToBonk)
             {
                 enemyToBonk = null;
+                Time.timeScale = 1.0f;
+                Time.fixedDeltaTime = 0.02f * Time.timeScale;
             }
         }
     }
