@@ -341,9 +341,10 @@ GameObject:
   - component: {fileID: 4852411390417760525}
   - component: {fileID: 4241084572023231213}
   - component: {fileID: 4729345968452255665}
+  - component: {fileID: 4293312735794286887}
   m_Layer: 0
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: BonkZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -548,6 +549,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &4293312735794286887
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897095615463596233}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.35
+  m_Center: {x: 0, y: 0.5, z: -0.25}
 --- !u!1 &2897095615463596235
 GameObject:
   m_ObjectHideFlags: 0

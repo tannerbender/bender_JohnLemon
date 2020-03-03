@@ -11,7 +11,9 @@ public class PlayerMovement : MonoBehaviour
     Quaternion m_Rotation =
         Quaternion.identity;
     Rigidbody m_Rigidbody;
-    // Start is called before the first frame update
+
+    public GameObject enemyToBonk; // stored reference to enemy 
+
     void Start()
     {
         m_Animator = GetComponent<Animator>();
@@ -56,6 +58,12 @@ public class PlayerMovement : MonoBehaviour
         m_Rotation =
             Quaternion.LookRotation(desiredForward);
 
+        if (Input.GetKeyDown(KeyCode.LeftShift) && enemyToBonk != null)
+
+        {
+            Destroy(enemyToBonk); // press left shift if we have an enemy to bonk
+        }
+
 
     }
     void OnAnimatorMove()
@@ -64,5 +72,24 @@ public class PlayerMovement : MonoBehaviour
             (m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);
         m_Rigidbody.MoveRotation(m_Rotation);
        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("BonkZone"))
+        {
+            enemyToBonk = other.gameObject.transform.parent.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("BonkZone"))
+        {
+            if(other.gameObject.transform.parent.gameObject == enemyToBonk)
+            {
+                enemyToBonk = null;
+            }
+        }
     }
 }
