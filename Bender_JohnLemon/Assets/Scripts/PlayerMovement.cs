@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,10 +13,16 @@ public class PlayerMovement : MonoBehaviour
         Quaternion.identity;
     Rigidbody m_Rigidbody;
 
+    public Text countText;
+
     public GameObject enemyToBonk; // stored reference to enemy 
+
+    private int count;
 
     void Start()
     {
+        count = 0;
+        SetCountText();
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
         m_AudioSource = GetComponent<AudioSource>();
@@ -64,10 +71,16 @@ public class PlayerMovement : MonoBehaviour
             Destroy(enemyToBonk);
             Time.timeScale = 1;
             Time.fixedDeltaTime = 0.02f * Time.timeScale; // press left shift if we have an enemy to bonk
+            count = count + 100;
+            SetCountText();
+
+            
         }
+        
 
 
     }
+  
     void OnAnimatorMove()
     {
         m_Rigidbody.MovePosition
@@ -95,7 +108,13 @@ public class PlayerMovement : MonoBehaviour
                 enemyToBonk = null;
                 Time.timeScale = 1.0f;
                 Time.fixedDeltaTime = 0.02f * Time.timeScale;
+               
+                
             }
         }
+    }
+    void SetCountText ()
+    {
+        countText.text = "Score: " + count.ToString();
     }
 }
