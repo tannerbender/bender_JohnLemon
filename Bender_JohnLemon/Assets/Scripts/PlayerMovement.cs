@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float turnSpeed = 20f;
+    public float turnSpeed = 100f;
     Animator m_Animator;
     AudioSource m_AudioSource;
     Vector3 m_Movement;
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
         float vertical = Input.GetAxis("Vertical");
 
-        m_Movement.Set(horizontal, 0f, vertical);
+        m_Movement.Set(0f, 0f, vertical);
 
         m_Movement.Normalize();
 
@@ -62,8 +62,11 @@ public class PlayerMovement : MonoBehaviour
         Vector3 desiredForward =
             Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
 
-        m_Rotation =
-            Quaternion.LookRotation(desiredForward);
+
+        transform.Rotate(Vector3.up * horizontal * turnSpeed * Time.deltaTime);
+
+       // m_Rotation =
+         //   Quaternion.LookRotation(desiredForward);
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && enemyToBonk != null)
 
@@ -84,8 +87,8 @@ public class PlayerMovement : MonoBehaviour
     void OnAnimatorMove()
     {
         m_Rigidbody.MovePosition
-            (m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);
-        m_Rigidbody.MoveRotation(m_Rotation);
+            (m_Rigidbody.position + transform.forward * m_Movement.z * m_Animator.deltaPosition.magnitude);
+       // m_Rigidbody.MoveRotation(m_Rotation);
        
     }
 
