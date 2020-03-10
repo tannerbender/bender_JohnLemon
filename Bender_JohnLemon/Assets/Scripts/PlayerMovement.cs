@@ -13,16 +13,18 @@ public class PlayerMovement : MonoBehaviour
         Quaternion.identity;
     Rigidbody m_Rigidbody;
 
-    public Text countText;
+    public Text countText; // creates counttext
 
     public GameObject enemyToBonk; // stored reference to enemy 
 
-    private int count;
+    private int count; // variable for count
 
     void Start()
     {
-        count = 0;
+        count = 0; //sets count
         SetCountText();
+
+        //gets components
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
         m_AudioSource = GetComponent<AudioSource>();
@@ -31,9 +33,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
+        float horizontal = Input.GetAxis("Horizontal"); //left and right
 
-        float vertical = Input.GetAxis("Vertical");
+        float vertical = Input.GetAxis("Vertical"); // up and down
 
         m_Movement.Set(0f, 0f, vertical);
 
@@ -49,18 +51,18 @@ public class PlayerMovement : MonoBehaviour
 
         if (isWalking)
         {
-            if (!m_AudioSource.isPlaying)
+            if (!m_AudioSource.isPlaying) // while walking add sound
             {
                 m_AudioSource.Play();
             }
         }
         else
         {
-            m_AudioSource.Stop();
+            m_AudioSource.Stop(); // otherwise stop sound
         }
 
         Vector3 desiredForward =
-            Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
+            Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f); // moving forward and turning with camera
 
 
         transform.Rotate(Vector3.up * horizontal * turnSpeed * Time.deltaTime);
@@ -68,13 +70,13 @@ public class PlayerMovement : MonoBehaviour
        // m_Rotation =
          //   Quaternion.LookRotation(desiredForward);
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && enemyToBonk != null)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && enemyToBonk != null) // bonk enemies with shift
 
         {
             Destroy(enemyToBonk);
             Time.timeScale = 1;
             Time.fixedDeltaTime = 0.02f * Time.timeScale; // press left shift if we have an enemy to bonk
-            count = count + 100;
+            count = count + 100; // add 100 to score for every enemy killed
             SetCountText();
 
             
@@ -94,22 +96,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("BonkZone"))
+        if (other.gameObject.CompareTag("BonkZone")) // if bonk zone
         {
-            enemyToBonk = other.gameObject.transform.parent.gameObject;
-            Time.timeScale = 0.5f;
-            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+            enemyToBonk = other.gameObject.transform.parent.gameObject; // call parent of object
+            Time.timeScale = 0.5f; // slow time
+            Time.fixedDeltaTime = 0.02f * Time.timeScale; // slow time
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("BonkZone"))
+        if (other.gameObject.CompareTag("BonkZone")) // if bonk zone
         {
             if(other.gameObject.transform.parent.gameObject == enemyToBonk)
             {
-                enemyToBonk = null;
-                Time.timeScale = 1.0f;
+                enemyToBonk = null; // kill enemy
+                Time.timeScale = 1.0f; // reset time back to normal
                 Time.fixedDeltaTime = 0.02f * Time.timeScale;
                
                 
@@ -118,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void SetCountText ()
     {
-        countText.text = "Score: " + count.ToString();
+        countText.text = "Score: " + count.ToString(); // sets ui for score
 
     }
 }

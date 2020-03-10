@@ -14,7 +14,7 @@ public class GameEnding : MonoBehaviour
     public CanvasGroup caughtBackgroundImageCanvasGroup;
     public AudioSource caughtAudio;
 
-
+    // sets up variables
     bool m_IsPlayerAtExit;
     bool m_IsPlayerCaught;
     float m_Timer;
@@ -22,6 +22,7 @@ public class GameEnding : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+       // if player object is at exit set it to true
         if (other.gameObject == player)
         {
             m_IsPlayerAtExit = true;
@@ -30,15 +31,17 @@ public class GameEnding : MonoBehaviour
 
     public void CaughtPlayer()
     {
-        m_IsPlayerCaught = true;
+        m_IsPlayerCaught = true; // if teh player is caught set caught player to true
     }
 
     void Update()
     {
+        // if player is at the exit than set the background image and exit audio
         if (m_IsPlayerAtExit)
         {
             EndLevel(exitBackgroundImageCanvasGroup, false, exitAudio);
         }
+        // if the player is caught then display caught image with caught audio
         else if (m_IsPlayerCaught)
         {
             EndLevel(caughtBackgroundImageCanvasGroup, true, caughtAudio);
@@ -49,9 +52,11 @@ public class GameEnding : MonoBehaviour
     {
         if (!m_HasAudioPlayed)
         {
+            // audio has played set to true
             audioSource.Play();
             m_HasAudioPlayed = true;
         }
+        // create a fade duration
         m_Timer += Time.deltaTime;
         imageCanvasGroup.alpha = m_Timer / fadeDuration;
 
