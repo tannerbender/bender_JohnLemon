@@ -63,20 +63,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\OldRadio\Okean\CamRotat.cs" />
-    <Compile Include="Assets\Pekdata\PekdataCRTMonitor\Scripts\ExampleBullet.cs" />
-    <Compile Include="Assets\Pekdata\PekdataCRTMonitor\Scripts\ExplodableMonitor.cs" />
+    <Compile Include="Assets\Models\OldRadio\Okean\CamRotat.cs" />
+    <Compile Include="Assets\Models\Pekdata\PekdataCRTMonitor\Scripts\ExampleBullet.cs" />
+    <Compile Include="Assets\Models\Pekdata\PekdataCRTMonitor\Scripts\ExplodableMonitor.cs" />
+    <Compile Include="Assets\Models\Table\DemoScene\Scripts\RotationOffset.cs" />
     <Compile Include="Assets\Scripts\GameEnding.cs" />
     <Compile Include="Assets\Scripts\LightFlicker.cs" />
     <Compile Include="Assets\Scripts\Observer.cs" />
     <Compile Include="Assets\Scripts\Outliner.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\WaypointPatrol.cs" />
-    <Compile Include="Assets\Table\DemoScene\Scripts\RotationOffset.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <None Include="Assets\Models\Retro Cabinet\ReadMe.txt" />
     <None Include="Assets\Shaders\SpookyStandardShader.shader" />
-    <None Include="Assets\OldRadio\Okean\ReadMe.txt" />
+    <None Include="Assets\Models\OldRadio\Okean\ReadMe.txt" />
     <None Include="Assets\Shaders\PlaneFog.shader" />
+    <None Include="Assets\Models\Crates And Barrels Pack Volume 1 - Free Version\manual.txt" />
     <None Include="Assets\Shaders\ToonShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/tlbender/Documents/GitHub/bender_JohnLemon/Bender_JohnLemon/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

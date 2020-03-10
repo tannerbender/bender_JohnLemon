@@ -119,5 +119,6 @@ public class PlayerMovement : MonoBehaviour
     void SetCountText ()
     {
         countText.text = "Score: " + count.ToString();
+
     }
 }
