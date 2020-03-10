@@ -63,14 +63,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\OldRadio\Okean\CamRotat.cs" />
+    <Compile Include="Assets\Pekdata\PekdataCRTMonitor\Scripts\ExampleBullet.cs" />
+    <Compile Include="Assets\Pekdata\PekdataCRTMonitor\Scripts\ExplodableMonitor.cs" />
     <Compile Include="Assets\Scripts\GameEnding.cs" />
     <Compile Include="Assets\Scripts\LightFlicker.cs" />
     <Compile Include="Assets\Scripts\Observer.cs" />
     <Compile Include="Assets\Scripts\Outliner.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\WaypointPatrol.cs" />
+    <Compile Include="Assets\Table\DemoScene\Scripts\RotationOffset.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <None Include="Assets\Shaders\SpookyStandardShader.shader" />
+    <None Include="Assets\OldRadio\Okean\ReadMe.txt" />
     <None Include="Assets\Shaders\PlaneFog.shader" />
     <None Include="Assets\Shaders\ToonShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
